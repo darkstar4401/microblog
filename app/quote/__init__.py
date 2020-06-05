@@ -17,20 +17,16 @@ from app.quote.email import send_password_reset_email
 
 @bp.route('/get-quote', methods=['GET', 'POST'])
 def getQuote():
-    if current_user.is_authenticated:
-        #TODO: redirect to profile
-        return redirect(url_for('main.index'))
-    #else get user zipcode and insurance status stpre in session
     landingform = LandingForm()
     personalInfoForm=PersonalInfoForm()
-    if landingform.zipcode.data is not None:
-        print(landingform.zipcode.data)
-        personalInfoForm.zipcode.data = landingform.zipcode.data
+    if current_user.is_authenticated:
+        print(current_user.email)
+        lead = Lead.query.filter_by(email=current_user.email).first()
+        #return redirect(url_for('quote.my-data'),PersonalInfoForm=personalInfoForm, lead=lead)
+        return render_template('quote/my-data.html', title=_('My Data'), lead=lead, PersonalInfoForm=personalInfoForm)
 
     if request.method == 'POST':
-        #return render_template('quote/my-data.html',PersonalInfoForm=personalInfoForm)
         #write zip and status tp session
-
         lead = Lead(
         	fname=personalInfoForm.fname.data,
 			lname=personalInfoForm.lname.data,
@@ -58,7 +54,7 @@ def getQuote():
 
         lead = Lead.query.filter_by(email=personalInfoForm.email.data).first()
         #return redirect(url_for('quote.my-data'),PersonalInfoForm=personalInfoForm, lead=lead)
-        return render_template('quote/my-data.html', title=_('My Data'), lead=lead, PersonalInfoForm=personalInfoForm)
+        return redirect(render_template('quote/my-data.html', title=_('My Data'), lead=lead, PersonalInfoForm=personalInfoForm))
 
     if not personalInfoForm.validate_on_submit() and request.method == 'POST':
         print("post")
@@ -106,10 +102,14 @@ def getQuote():
 
 @bp.route('/my-data', methods=['GET', 'POST'])
 def success():
+    landingform = LandingForm()
+    personalInfoForm=PersonalInfoForm()
     if current_user.is_authenticated:
-        #TODO: redirect to profile
-        return redirect(url_for('main.index'))
-    lead = Lead.query.filter_by(email="datatradr96@gmail.com").first()#form.email.data
+        print(current_user.email)
+        lead = Lead.query.filter_by(email=current_user.email).first()
+        #return redirect(url_for('quote.my-data'),PersonalInfoForm=personalInfoForm, lead=lead)
+        return render_template('quote/my-data.html', title=_('My Data'), lead=lead, PersonalInfoForm=personalInfoForm)
+
     print(lead.email)
     if lead.email is not None:
     	print(lead)

@@ -2,20 +2,25 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='home.css') }}">
 <!-- Remember to include jQuery :) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
 <!-- jQuery Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<div class="content" style="text-align: center; margin-right: 10%; margin-left: 10%;">
+  <div>
+    <h1>Get a Free Auto quote today!</h1>
+    <img src="/static/hero1.jpg" style="width:70% ">
+    
+  </div>
 
-<div class="content" style="text-align: center;">
-<h1>Get a Free Auto quote today!</h1>
-<form action="" method="post">
-    {{ form.hidden_tag() }}
-    <a class="btn" href="#ex2" rel="modal:open">Get Quote</a>
-    <p><a class="btn" href="#ex2" rel="modal:open">{{ PersonalInfoForm.submit() }}</a></p>
-</form>
+<div class="row">
+  <div class="column"><img src="/static/left-ins.png" style="width:60%; padding-right: 0px;"></div>
+  <div class="column"><img src="/static/right-ins.png" style="width:60%; padding-left: 0px;"></div>
+</div>
+<button><a class="btn" href="#ex2" rel="modal:open">Get Quote</a></button><br>
 </div>
 <div class="forms" style="display: none;">
 <form action="" class="quote_form modal" id="ex2" style="display: inline-block;"  method="POST">
