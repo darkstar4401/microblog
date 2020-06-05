@@ -86,6 +86,30 @@ followers = db.Table(
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
+class Lead(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    fname = db.Column(db.String(128))
+    lname = db.Column(db.String(128))
+    email = db.Column(db.String(128), unique=True)
+    zipcode = db.Column(db.String(128))
+    insured = db.Column(db.String(128))
+    gender = db.Column(db.String(128))
+    birthDate = db.Column(db.String(128))   
+    martial = db.Column(db.String(128))
+    military = db.Column(db.String(128))
+    homeOwner = db.Column(db.String(128)) 
+    education = db.Column(db.String(128))
+    occupation = db.Column(db.String(128))
+    credit = db.Column(db.String(128))
+    accidents = db.Column(db.String(128))
+    duis = db.Column(db.String(128))
+    suspensions = db.Column(db.String(128))
+    parentId = db.Column(db.String(128))
+    phone = db.Column(db.String(128))
+    phoneVerified = db.Column(db.String(128))
+    
+
+
 
 
 class User(UserMixin, PaginatedAPIMixin, db.Model):

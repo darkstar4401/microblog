@@ -11,6 +11,35 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     ELASTICSEARCH_URL = None
 
+class LeadModelCase(unittest.TestCase):
+    def setUp(self):
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        db.create_all()
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+        self.app_context.pop()
+        lead_data = {
+            "fname":"david",
+            "lname":"lname",
+            "email":"email",
+            "zipcode":"zipcode",
+            "insured":"insured",
+            "gender":"gender",
+            "birthDate":personalInfoForm.birthDate.data,
+            "martial":personalInfoForm.martial.data,
+            "military":personalInfoForm.military.data,
+            "homeOwner":personalInfoForm.homeOwner.data,
+            "education":personalInfoForm.education.data,
+            "occupation":personalInfoForm.occupation.data,
+            "credit":personalInfoForm.credit.data,
+            "accidents":personalInfoForm.accidents.data,
+            "suspensions":personalInfoForm.suspensions.data,
+            "phone":personalInfoForm.phone.data,
+            "phoneVerified":"False",
+            "parentId":"None"}
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):

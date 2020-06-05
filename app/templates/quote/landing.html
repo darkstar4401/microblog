@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<!-- Remember to include jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+<div class="content" style="text-align: center;">
+<h1>Get a Free Auto quote today!</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <a class="btn" href="#ex2" rel="modal:open">Get Quote</a>
+    <p><a class="btn" href="#ex2" rel="modal:open">{{ PersonalInfoForm.submit() }}</a></p>
+</form>
+</div>
+<div class="forms" style="display: none;">
+<form action="" class="quote_form modal" id="ex2" style="display: inline-block;"  method="POST">
+    {{ form.hidden_tag() }}
+    <h2>Personal Info...</h2>
+    <hr>
+        <p>
+        {{ PersonalInfoForm.zipcode.label }}<br>
+        {{ PersonalInfoForm.zipcode(size=32) }}<br>
+        {% for error in form.zipcode.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.insStatus.label }}<br>
+        {{ PersonalInfoForm.insStatus }}<br>
+        {% for error in form.insStatus.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.fname.label }}<br>
+        {{ PersonalInfoForm.fname(size=32) }}<br>
+        {% for error in PersonalInfoForm.fname.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.lname.label }}<br>
+        {{ PersonalInfoForm.lname(size=32) }}<br>
+        {% for error in PersonalInfoForm.lname.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.email.label }}<br>
+        {{ PersonalInfoForm.email(size=32) }}<br>
+        {% for error in PersonalInfoForm.email.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.phone.label }}<br>
+        {{ PersonalInfoForm.phone(size=32) }}<br>
+        {% for error in PersonalInfoForm.phone.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.gender.label }}<br>
+        {{ PersonalInfoForm.gender }}<br>
+        {% for error in PersonalInfoForm.gender.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.birthDate.label }}<br>
+        {{ PersonalInfoForm.birthDate }}<br>
+        {% for error in PersonalInfoForm.birthDate.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.martial.label }}<br>
+        {{ PersonalInfoForm.martial }}<br>
+        {% for error in PersonalInfoForm.martial.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.military.label }}<br>
+        {{ PersonalInfoForm.military }}<br>
+        {% for error in PersonalInfoForm.military.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.homeOwner.label }}<br>
+        {{ PersonalInfoForm.homeOwner }}<br>
+        {% for error in PersonalInfoForm.homeOwner.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.education.label }}<br>
+        {{ PersonalInfoForm.education }}<br>
+        {% for error in PersonalInfoForm.education.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.occupation.label }}<br>
+        {{ PersonalInfoForm.occupation }}<br>
+        {% for error in PersonalInfoForm.occupation.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.credit.label }}<br>
+        {{ PersonalInfoForm.credit }}<br>
+        {% for error in PersonalInfoForm.credit.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.accidents.label }}<br>
+        {{ PersonalInfoForm.accidents }}<br>
+        {% for error in PersonalInfoForm.accidents.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.duis.label }}<br>
+        {{ PersonalInfoForm.duis }}<br>
+        {% for error in PersonalInfoForm.duis.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.suspensions.label }}<br>
+        {{ PersonalInfoForm.suspensions }}<br>
+        {% for error in PersonalInfoForm.suspensions.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p style="text-align: right;">
+    	{{ PersonalInfoForm.submit() }}
+	</p>
+    
+<a href="#close-modal" rel="modal:close" class="close-modal ">Close</a>
+</form>
+<form action="" class="quote_form modal" id="ex3" style="display: inline-block;" method="POST">
+    {{ form.hidden_tag() }}
+    <h2>Driving History...</h2>
+    <hr>
+    <p>
+        {{ PersonalInfoForm.accidents.label }}<br>
+        {{ PersonalInfoForm.accidents }}<br>
+        {% for error in PersonalInfoForm.accidents.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.duis.label }}<br>
+        {{ PersonalInfoForm.duis }}<br>
+        {% for error in PersonalInfoForm.duis.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.suspensions.label }}<br>
+        {{ PersonalInfoForm.suspensions }}<br>
+        {% for error in PersonalInfoForm.suspensions.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+    	<p style="text-align: right;">
+    		<a class="btn" href="#ex2" rel="modal:open">Prev. Page</a>
+    		<button type="submit" form="personalInfoForm" value="Submit">Submit this one</button>
+    		{{ PersonalInfoForm.submit() }}
+    	</p>
+
+    </p>
+<a href="#close-modal" rel="modal:close" class="close-modal ">Close</a>
+</form>
+</div>
+{% endblock %}
+
