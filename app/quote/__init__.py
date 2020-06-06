@@ -54,7 +54,7 @@ def getQuote():
 
         lead = Lead.query.filter_by(email=personalInfoForm.email.data).first()
         #return redirect(url_for('quote.my-data'),PersonalInfoForm=personalInfoForm, lead=lead)
-        return redirect(render_template('quote/my-data.html', title=_('My Data'), lead=lead, PersonalInfoForm=personalInfoForm))
+        return render_template('quote/my-data.html', title=_('My Data'), lead=lead, PersonalInfoForm=personalInfoForm)
 
     if not personalInfoForm.validate_on_submit() and request.method == 'POST':
         print("post")
