@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+#'sqlite:///' + os.path.join(basedir, 'app.db')
 load_dotenv(os.path.join(basedir, '.env'))
 
 
