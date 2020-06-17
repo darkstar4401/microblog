@@ -10,4 +10,4 @@ while true; do
     sleep 5
 done
 flask translate compile
-exec gunicorn -b :7000 --access-logfile - --error-logfile - microblog:app
+exec gunicorn --certfile cert.pem --keyfile key.pem -b :7000 --access-logfile - --error-logfile - microblog:app
