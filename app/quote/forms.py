@@ -32,7 +32,12 @@ class PersonalInfoForm(FlaskForm):
     phoneVerified = StringField(_l('Is phone verified:'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 class VehicleInfoForm(FlaskForm):
-    pass
+    make = SelectField(_l('Make:'), choices=[('tech',"Tech./IT"),('health',"Heathcare"),('finance',"Finance"),("Manufacturing",'Manufacturing'),("Construction",'Construction'),('trade',"Skilled Trade")])
+    model = SelectField(_l('Model:'), choices=[('tech',"Tech./IT"),('health',"Heathcare"),('finance',"Finance"),("Manufacturing",'Manufacturing'),("Construction",'Construction'),('trade',"Skilled Trade")])
+    trim = SelectField(_l('Trim:'), choices=[('sedan4d',"4 Door Sedan"),('coupe',"2 Door Coupe"),('convert',"Convertable")])
+    year = SelectField(_l('Year'), choices=[(str(year),str(year)) for year in range(1980,2021)])
+    submit = SubmitField(_l('Submit'))
+
 class HomeInfoForm(FlaskForm):
     pass
 
@@ -75,3 +80,8 @@ class ResetPasswordForm(FlaskForm):
         _l('Repeat Password'), validators=[DataRequired(),
                                            EqualTo('password')])
     submit = SubmitField(_l('Request Password Reset'))
+
+class TestForm(FlaskForm):
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    submit = SubmitField(_l('test submit'))
+

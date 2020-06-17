@@ -10,17 +10,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <div class="content" style="text-align: center; margin-right: 10%; margin-left: 10%;">
+    <iframe src="http://blockwiseanalytics.io/crypto/" width="100%" height="500" style="border:none;" scrolling="no"></iframe>
   <div>
+    <div class="column"><img src="/static/left-ins.png" style="width:60%; padding-right: 0px;"></div>
+    <div class="column"><img src="/static/right-ins.png" style="width:60%; padding-left: 0px;"></div>
     <h1>Get A Free Auto Quote Today!</h1>
     <img src="/static/hero1.jpg" style="width:60%; height: 50%;">
     
   </div>
 
 <div class="row">
-  <div class="column"><img src="/static/left-ins.png" style="width:60%; padding-right: 0px;"></div>
-  <div class="column"><img src="/static/right-ins.png" style="width:60%; padding-left: 0px;"></div>
+    {{ VehicleInfoForm.hidden_tag() }}
+    <h2>Vehicle Info</h2>
+    <hr>
+    <p>{{ VehicleInfoForm.make.label }}{{ VehicleInfoForm.model.label }}{{ VehicleInfoForm.trim.label }}</p>
+    <p>
+        {{ VehicleInfoForm.make }}{{ VehicleInfoForm.model }}{{ VehicleInfoForm.trim }}<br>
+    </p>
+        <p style="text-align: right;">
+            {{ VehicleInfoForm.submit() }}
+        </p>
+
+    </p>
+
 </div>
 <button><a class="btn" href="#ex2" rel="modal:open">Get Quote</a></button><br>
+</div>
+<script type="text/javascript" src="//use.typekit.net/uvs8amk.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<div class="form">
+        
 </div>
 <div class="forms" style="display: none;">
 <form action="" class="quote_form modal" id="ex2" style="display: inline-block;"  method="POST">
@@ -154,34 +174,28 @@
 </form>
 <form action="" class="quote_form modal" id="ex3" style="display: inline-block;" method="POST">
     {{ form.hidden_tag() }}
-    <h2>Driving History...</h2>
+    <h2>Vehicle Info</h2>
     <hr>
     <p>
-        {{ PersonalInfoForm.accidents.label }}<br>
-        {{ PersonalInfoForm.accidents }}<br>
-        {% for error in PersonalInfoForm.accidents.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
+        {{ VehicleInfoForm.make.label }}<br>
+        {{ VehicleInfoForm.make }}<br>
     </p>
     <p>
-        {{ PersonalInfoForm.duis.label }}<br>
-        {{ PersonalInfoForm.duis }}<br>
-        {% for error in PersonalInfoForm.duis.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
+        {{ VehicleInfoForm.model.label }}<br>
+        {{ VehicleInfoForm.model }}<br>
     </p>
     <p>
-        {{ PersonalInfoForm.suspensions.label }}<br>
-        {{ PersonalInfoForm.suspensions }}<br>
-        {% for error in PersonalInfoForm.suspensions.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
+        {{ VehicleInfoForm.make.label }}<br>
+        {{ VehicleInfoForm.make }}<br>
+    </p>
+    <p>
+        {{ VehicleInfoForm.trim.label }}<br>
+        {{ VehicleInfoForm.trim }}<br>
     </p>
     <p>
     	<p style="text-align: right;">
     		<a class="btn" href="#ex2" rel="modal:open">Prev. Page</a>
-    		<button type="submit" form="personalInfoForm" value="Submit">Submit this one</button>
-    		{{ PersonalInfoForm.submit() }}
+    		{{ VehicleInfoForm.submit() }}
     	</p>
 
     </p>

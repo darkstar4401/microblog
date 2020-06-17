@@ -1,28 +1,126 @@
-{% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
-
-{% block content %}
-<div class="content">
-<h1>Get a Free Auto quote today!</h1>
-<form action="" method="post">
-    {{ form.hidden_tag() }}
-    <p>
-        {{ form.zipcode.label }}<br>
-        {{ form.zipcode(size=32) }}<br>
-        {% for error in form.zipcode.errors %}
+<form action="#" class="quote_form modal" id="PersonalInfoForm" style="display: inline-block;"  method="POST">
+    {{ PersonalInfoForm.hidden_tag() }}
+    <h2>Personal Info...</h2>
+    <hr>
+        <p>
+        {{ PersonalInfoForm.zipcode.label }}<br>
+        {{ PersonalInfoForm.zipcode(size=32) }}<br>
+        {% for error in PersonalInfoForm.zipcode.errors %}
         <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
     </p>
     <p>
-        {{ form.insured.label }}<br>
-        {{ form.insured(size=32) }}<br>
-        {% for error in form.insured.errors %}
+        {{ PersonalInfoForm.insStatus.label }}<br>
+        {{ PersonalInfoForm.insStatus }}<br>
+        {% for error in PersonalInfoForm.insStatus.errors %}
         <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
     </p>
-   
-    <p>{{ form.submit() }}</p>
-</form>
-</div>
-{% endblock %}
-
+    <p>
+        {{ PersonalInfoForm.fname.label }}<br>
+        {{ PersonalInfoForm.fname(size=32) }}<br>
+        {% for error in PersonalInfoForm.fname.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.lname.label }}<br>
+        {{ PersonalInfoForm.lname(size=32) }}<br>
+        {% for error in PersonalInfoForm.lname.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.email.label }}<br>
+        {{ PersonalInfoForm.email(size=32) }}<br>
+        {% for error in PersonalInfoForm.email.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.phone.label }}<br>
+        {{ PersonalInfoForm.phone(size=32) }}<br>
+        {% for error in PersonalInfoForm.phone.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.gender.label }}<br>
+        {{ PersonalInfoForm.gender }}<br>
+        {% for error in PersonalInfoForm.gender.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.birthDate.label }}<br>
+        {{ PersonalInfoForm.birthDate }}<br>
+        {% for error in PersonalInfoForm.birthDate.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.martial.label }}<br>
+        {{ PersonalInfoForm.martial }}<br>
+        {% for error in PersonalInfoForm.martial.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.military.label }}<br>
+        {{ PersonalInfoForm.military }}<br>
+        {% for error in PersonalInfoForm.military.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.homeOwner.label }}<br>
+        {{ PersonalInfoForm.homeOwner }}<br>
+        {% for error in PersonalInfoForm.homeOwner.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.education.label }}<br>
+        {{ PersonalInfoForm.education }}<br>
+        {% for error in PersonalInfoForm.education.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.occupation.label }}<br>
+        {{ PersonalInfoForm.occupation }}<br>
+        {% for error in PersonalInfoForm.occupation.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.credit.label }}<br>
+        {{ PersonalInfoForm.credit }}<br>
+        {% for error in PersonalInfoForm.credit.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.accidents.label }}<br>
+        {{ PersonalInfoForm.accidents }}<br>
+        {% for error in PersonalInfoForm.accidents.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.duis.label }}<br>
+        {{ PersonalInfoForm.duis }}<br>
+        {% for error in PersonalInfoForm.duis.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ PersonalInfoForm.suspensions.label }}<br>
+        {{ PersonalInfoForm.suspensions }}<br>
+        {% for error in PersonalInfoForm.suspensions.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p style="text-align: right;">
+    	{{ PersonalInfoForm.submit() }}
+	</p>

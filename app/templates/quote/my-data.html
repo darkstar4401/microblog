@@ -9,7 +9,9 @@
 <!-- jQuery Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 <div class="content" style="text-align: center;">
+
   <h2>Personal Info...</h2>
   <div class="col1">
 	<table style="width:50%; margin-left:25%;">
@@ -46,7 +48,11 @@
 	  </tr>
 	</table>
 	<br>
-	<button>Edit</button>
+	<hr><br>
+  {% if current_user.is_anonymous %}
+  <p>Thanks for clicking. A qualified agent will reach out to you shortly. Make an account with us to review and update your data.</p>
+  <button><a href="{{ url_for('auth.register') }}" style="text-decoration-line: underline;">Register now</a></button>
+  {% endif %}
   </div>
   
 </div>
